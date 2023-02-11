@@ -76,13 +76,13 @@ void q_sort_rec(int low, int high){
         std::cout << "qsort_rec::while::before while2" << std::endl;
         std::cout << "qsort_rec::while::(tab[right] >= pivot_value) =  " << (tab[right] >= pivot_value) << std::endl;
 
-        while(tab[right] >= pivot_value) right--;
+        while(tab[right] > pivot_value){ std::cout<< "loop start r = " << right << std::endl; right--;}
         std::cout << "qsort_rec::while::before if" << std::endl;
         if(left < right)swap(left, right);
     }
     std::cout << "qsort_rec::after while" << std::endl;
 
-    if ((pivot_value >= tab[right])) swap(right, pivot_index);
+    if ((pivot_value > tab[right])) swap(right, pivot_index);
 
     displayTab();    
     std::cout << "exiting qsort_rec" << std::endl;
