@@ -21,6 +21,9 @@ int main(int argc, char**argv){
     for(int i = 0; i < SIZE; i++)
         tab[i] = ((i * (9+i) * i + 1) % (i + i + 5));
 
+
+
+
     displayTab();
     quicksort();
     displayTab();
@@ -58,22 +61,32 @@ void tquicksort(){
 
 
 void q_sort_rec(int low, int high){
-
+        std::cout << "entering qsort_rec" << std::endl;
     if(low == high) return;
 
     int pivot_index = low;
     int pivot_value = tab[pivot_index];
     int left = pivot_index + 1;
     int right = high - 1;
+    std::cout << "qsort_rec::before while" << std::endl;
 
     while (left < right) {
+        std::cout << "qsort_rec::while::before while1" << std::endl;
         while(left < high && (tab[left] < pivot_value)) left++;
-        while((tab[right] >= pivot_value)) right--;
+        std::cout << "qsort_rec::while::before while2" << std::endl;
+        std::cout << "qsort_rec::while::(tab[right] >= pivot_value) =  " << (tab[right] >= pivot_value) << std::endl;
+
+        while(tab[right] >= pivot_value) right--;
+        std::cout << "qsort_rec::while::before if" << std::endl;
         if(left < right)swap(left, right);
     }
+    std::cout << "qsort_rec::after while" << std::endl;
+
     if ((pivot_value >= tab[right])) swap(right, pivot_index);
 
-    
+    displayTab();    
+    std::cout << "exiting qsort_rec" << std::endl;
+
     if(low != right)q_sort_rec(low, right);
     if(high != right+1) q_sort_rec(right+1, high);
 
