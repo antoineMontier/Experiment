@@ -66,7 +66,7 @@ void q_sort_rec(int low, int high){
 
     int pivot_index = low;
     int pivot_value = tab[pivot_index];
-    int left = pivot_index + 1;
+    int left = pivot_index +1;
     int right = high - 1;
     std::cout << "qsort_rec::before while" << std::endl;
 
